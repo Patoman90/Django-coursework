@@ -12,11 +12,17 @@
     <table>
         {% for item in items %}
             <tr>
-            {% if item.done %}
-                <td><strike>{{ item.name }}</strike></td></tr>
-            {% else %}
-                <td>{{ item.name}}</td>
-            {% endif %}
+                {% if item.done %}
+                    <td><strike>{{ item.name }}</strike></td>
+                {% else %}
+                    <td>{{ item.name}}</td>
+                {% endif %}
+
+                <td>
+                    <form method="GET" action="edit/{{ item_id }}"><input type="submit" value="Edit"></form>
+                </td>
+
+            </tr>
             {% empty %}
             <p>You have nothing to do at the moment.</p>
         {% endfor %}

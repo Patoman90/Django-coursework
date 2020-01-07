@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .models import Item
-# Create your views here.
+from .forms import ItemForm
 
 
 def get_todo_list(request):
@@ -10,11 +10,24 @@ def get_todo_list(request):
 
 def create_an_item(request):
     if request.method == "POST":
-        new_item = Item()
-        new_item.name = request.POST.get('name')
-        new_item.done = 'done' in request.POST
-        new_item.save()
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(get_todo_list)
+    else:
+        form = ItemForm()
 
-        return redirect(get_todo_list)
+    return render(request, "add_item.html", {'form': form})
 
-    return render(request, "add_item.html")
+
+def edit_an_item(request, id):
+    item = get_object_or_404(Item, pk=id)
+
+    if request.method == "POST":
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect(get_todo_list)
+    else:
+        form = ItemForm(instance=item)
+    return render(request, "add_item.html", {'form': form})
