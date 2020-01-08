@@ -28,7 +28,9 @@ SECRET_KEY = 'ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8080-b6458cfa-734a-406a-b1da-a30664e58153.ws-eu01.gitpod.io'
+    '8080-b6458cfa-734a-406a-b1da-a30664e58153.ws-eu01.gitpod.io',
+    'ptrollip-django-app1.herokuapp.com'
+
 ]
 
 
