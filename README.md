@@ -1,7 +1,5 @@
-# Code Institute
+This was the code used to make my first django app as part of my coursework exercises.
 
-Welcome Patrick TrollipI,
+It incorporated the heroku platform into the project.
 
-We have preinstalled all of the tools you need to get started.
-
-Happy coding!
+Python3 was used with django and testing was done with djangos testing module called coverage.
