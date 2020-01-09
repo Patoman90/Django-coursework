@@ -27,7 +27,7 @@ SECRET_KEY = 'ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('gitpod_HOSTNAME'),
+ALLOWED_HOSTS = [os.environ.get('gitpod.io_HOSTNAME'),
                  os.environ.get('HOSTNAME')]
 
 host = os.environ.get('SITE_HOST')
