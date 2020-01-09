@@ -27,12 +27,8 @@ SECRET_KEY = 'ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('gitpod.io_HOSTNAME'),
-                 os.environ.get('HOSTNAME')]
-
-host = os.environ.get('SITE_HOST')
-if host:
-    ALLOWED_HOSTS.append('host')
+ALLOWED_HOSTS = ['8080-b6458cfa-734a-406a-b1da-a30664e58153.ws-eu01.gitpod.io',
+                 'ptrollip-django-app1.herokuapp.com']
 
 
 # Application definition
@@ -89,7 +85,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse("postgres://hqjtrwnqjtgscv:b00eec4c84bd12591784bbd80072b3076837161e58e057893ddfac33621308b3@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/dd9nn1t0l3tsgo")
 }
 
 # Password validation
