@@ -34,9 +34,6 @@ host = os.environ.get('SITE_HOST')
 if host:
     ALLOWED_HOSTS.append('host')
 
-# '8080-b6458cfa-734a-406a-b1da-a30664e58153.ws-eu01.gitpod.io',
-# 'ptrollip-django-app1.herokuapp.com'
-
 
 # Application definition
 
@@ -92,7 +89,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://hqjtrwnqjtgscv:b00eec4c84bd12591784bbd80072b3076837161e58e057893ddfac33621308b3@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/dd9nn1t0l3tsgo")
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
