@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+import env
+
 import dj_database_url
 
 if os.environ.get('DEVELOPMENT'):
@@ -30,7 +32,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ='ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "Env value not loaded")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -135,3 +138,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
