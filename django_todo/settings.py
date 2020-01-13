@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-import env
+if os.path.exists("env.py"):
+    import env
 
 import dj_database_url
 
@@ -39,7 +40,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "Env value not loaded")
 
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('GITPOD_HOST'),
+ALLOWED_HOSTS = ["localhost",
                  os.environ.get('HEROKU_HOST')]
 
 
@@ -98,7 +99,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #    }
 # else:
 DATABASES = {
-      'default': dj_database_url.parse(os.environ.get('DATABASE_CONNECTION'))
+      'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 # Password validation
