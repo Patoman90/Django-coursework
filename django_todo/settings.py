@@ -41,7 +41,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "Env value not loaded")
 DEBUG = True
 
 ALLOWED_HOSTS = ["localhost",
-                 os.environ.get('HEROKU_HOST')]
+                 os.environ.get('HEROKU_HOST'), "ptrollip-django-app1.herokuapp.com"]
 
 
 # Application definition
