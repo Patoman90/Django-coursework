@@ -38,7 +38,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "Env value not loaded")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = development
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost",
                  os.environ.get('HEROKU_HOST')]
