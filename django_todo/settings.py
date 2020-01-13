@@ -30,14 +30,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
+SECRET_KEY ='ty$*ny3@lyl8c-e#*&%q1nj$g+)de5cvjac5zu0s&x(vgbxrq$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = development
 
-ALLOWED_HOSTS = ['8080-b6458cfa-734a-406a-b1da-a30664e58153.ws-eu01.gitpod.io',
-                 'ptrollip-django-app1.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('GITPOD_HOST'),
+                 os.environ.get('HEROKU_HOST')]
 
 
 # Application definition
@@ -86,16 +86,16 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if development:
-    DATABASES = {
-       'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else:
-    DATABASES = {
-      'default': dj_database_url.parse("postgres://hqjtrwnqjtgscv:b00eec4c84bd12591784bbd80072b3076837161e58e057893ddfac33621308b3@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/dd9nn1t0l3tsgo")
+# if development:
+#    DATABASES = {
+#       'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        }
+#    }
+# else:
+DATABASES = {
+      'default': dj_database_url.parse(os.environ.get('DATABASE_CONNECTION'))
     }
 
 # Password validation
